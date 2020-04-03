@@ -2,7 +2,7 @@
   "profiles": {
     "hackernews": {
       "commandName": "Project",
-      "commandLineArgs": "--posts 50"
+      "commandLineArgs": "--posts 50 --omit-validation-failures"
     }
   }
 }

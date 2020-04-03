@@ -7,7 +7,7 @@ namespace HackerNewsScraper
 {
     public class HNScraper
     {
-        public string GetPosts(int requiredPosts)
+        public string GetPosts(int requiredPosts, bool omitValidationFailures)
         {
             var uri = HNPage.BASE_URI;
             var web = new HtmlWeb();
@@ -24,7 +24,8 @@ namespace HackerNewsScraper
                 if (hnPage.NextPageUri == null) break;
                 uri = hnPage.NextPageUri;
             }
-            
+
+            if (omitValidationFailures) posts = posts.Where(p => p.ValidationErrors == null).ToList();
             return JsonConvert.SerializeObject(posts.Take(requiredPosts), Formatting.Indented);
         }
     }

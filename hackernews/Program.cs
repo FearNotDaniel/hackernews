@@ -18,10 +18,13 @@ Remarks:
         [Option(Description = "How many posts to print. A positive integer <= 100.")]
         public int Posts { get; }
 
+        [Option(Description = "Suppress from the output any posts that fail validation, for example when there is no post author.")]
+        public bool OmitValidationFailures { get; }
+
         private void OnExecute()
         {
             var scraper = new HNScraper();
-            Console.WriteLine(scraper.GetPosts(this.Posts));
+            Console.WriteLine(scraper.GetPosts(this.Posts, this.OmitValidationFailures));
         }
     }
 
