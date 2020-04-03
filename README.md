@@ -1,3 +1,5 @@
+![.NET Core Tests](https://github.com/FearNotDaniel/hackernews/workflows/.NET%20Core%20Tests/badge.svg)
+
 # hackernews
 Console app to scrape entries from HN and convert to Json.
 
