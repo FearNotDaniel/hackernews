@@ -1,8 +1,0 @@
-version: '3.4'
-
-services:
-  hackernews:
-    image: ${DOCKER_REGISTRY-}hackernews
-    build:
-      context: .
-      dockerfile: hackernews/Dockerfile
