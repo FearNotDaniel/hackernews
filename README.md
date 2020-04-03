@@ -21,12 +21,12 @@ This requires the relevant runtime to be installed on the target machine. As an 
 
 # Tests
 
-Significant classes are tested with xUnit. GitHub badge above should indicate passing tests; clone the repo and open in Visual Studio to execute the tests locally from Test Explorer.
+Significant classes are tested with xUnit. The GitHub badge above should indicate passing tests; clone the repo and open in Visual Studio to execute the tests locally from Test Explorer.
 
 # Libraries Used
 
 * **.Net Core 2.1**: LTS version of the 2.x series; I can also work with 3.1 but my current home dev setup only has VS2017 and new laptop delivery is delayed by the lockdown :-()
-* **HtmlAgilityPack**: a popular web scraping library that I have used on several previous projects. Advantages are that it is very forgiving of poorly-formed HTML, runs on many versions of both .NET Framwework and Core, is well maintained and has good documentation.
+* **HtmlAgilityPack**: a popular web scraping library that I have used on several previous projects. Advantages are that it is very forgiving of poorly-formed HTML, runs on many versions of both .NET Framework and Core, is well maintained and has good documentation.
 * **Fizzler for HtmlAgilityPack**: useful extensions that allow CSS selector syntax instead of XPath notation, for a more intuitive coding experience.
-* **McMaster CommandLineUtils**: originally forked from Microsoft's own CommandLineUtils, greatly eases the parsing and validation of program arguments along with an auto-generated --help command.
+* **McMaster CommandLineUtils**: originally forked from Microsoft's own CommandLineUtils, greatly eases the parsing and validation of program arguments along with an auto-generated `--help` command.
 * **Newtonsoft.Json**: the standard Json library for aeons, only superseded by Microsoft's own native library in Core 3.x
