@@ -11,13 +11,19 @@ To run in a Docker container and output the first 50 posts:
 
 `> docker run hn`
 
+# Output
+
+Following the web scraping phase, all results are validated by a strongly typed class that makes use of the `System.ComponentModel.DataAnnotations` API to specify rules as per the requirements. However it was noted in development that not all actual HN posts conform with these requirements, for example [this recent front-page item](https://news.ycombinator.com/item?id=22756364) has neither author, points nor comments in the HTML.
+
+For this reason, by default any items that fail validation rules are included in the output with an additional `ValidationErrors` field to indicate shortcomings in the source data. These can be excluded from output by running with the switch `--omit-validation-failures` or simple `-o`.
+
 # Self Contained Executables
 
-As a .NET Core Console App, the project can be run from the output directory in the usual way:
+As a .NET Core Console App, the project can be run from the output directory in the usual way, providing the relevant runtime is installed on the target machine:
 
 `> dotnet hackernews.dll --posts 50`
 
-This requires the relevant runtime to be installed on the target machine. As an alternative, self-contained binaries for all platforms can be downloaded from the [Releases page](https://github.com/FearNotDaniel/hackernews/releases).
+As an alternative, self-contained binaries for all platforms can be downloaded from the [Releases page](https://github.com/FearNotDaniel/hackernews/releases).
 
 # Tests
 
