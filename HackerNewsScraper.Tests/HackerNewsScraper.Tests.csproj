@@ -7,6 +7,35 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="SampleInput\news-page-without-posts-or-more.html" />
+    <None Remove="SampleInput\news-page.html" />
+    <None Remove="SampleInput\normal-post.html" />
+    <None Remove="SampleInput\post-without-author-or-points.html" />
+    <None Remove="SampleInput\post-without-comments.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="SampleInput\news-page-without-posts-or-more.html">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="SampleInput\news-page.html">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleInput\normal-post.html">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleInput\post-without-author-or-points.html">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleInput\post-without-comments.html">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.1" />
     <PackageReference Include="xunit" Version="2.4.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
@@ -14,24 +43,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HackerNewsScraper\HackerNewsScraper.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="SampleInput\news-page-without-posts-or-more.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="SampleInput\news-page.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="SampleInput\normal-post.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="SampleInput\post-without-author-or-points.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="SampleInput\post-without-comments.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
+using System.Reflection;
 using HtmlAgilityPack;
 using Xunit;
 
@@ -6,15 +8,14 @@ namespace HackerNewsScraper.Tests
 {
     public class HNPageTests
     {
-        public const string NEWS_PAGE = @"SampleInput\news-page.html";
-        public const string NEWS_PAGE_WITHOUT_POSTS_OR_MORE = @"SampleInput\news-page-without-posts-or-more.html";
+        public const string NEWS_PAGE = "HackerNewsScraper.Tests.SampleInput.news-page.html";
+        public const string NEWS_PAGE_WITHOUT_POSTS_OR_MORE = "HackerNewsScraper.Tests.SampleInput.news-page-without-posts-or-more.html";
 
         [Fact]
         public void PageSelectsAllPosts()
         {
             // ARRANGE: load sample Html from file into an HNPage object
-            var doc = new HtmlDocument();
-            doc.Load(NEWS_PAGE);
+            var doc = ResourceLoader.LoadHtmlDocument(NEWS_PAGE);
             var page = new HNPage(doc);
 
             // ACT: retrieve posts from the page
@@ -28,8 +29,7 @@ namespace HackerNewsScraper.Tests
         public void PageSelectsMoreLink()
         {
             // ARRANGE: load sample Html from file into an HNPage object
-            var doc = new HtmlDocument();
-            doc.Load(NEWS_PAGE);
+            var doc = ResourceLoader.LoadHtmlDocument(NEWS_PAGE);
             var page = new HNPage(doc);
 
             // ACT: retrieve next page uri
@@ -43,8 +43,7 @@ namespace HackerNewsScraper.Tests
         public void PageSurvivesMissingMoreLink()
         {
             // ARRANGE: load sample Html from file into an HNPage object
-            var doc = new HtmlDocument();
-            doc.Load(NEWS_PAGE_WITHOUT_POSTS_OR_MORE);
+            var doc = ResourceLoader.LoadHtmlDocument(NEWS_PAGE_WITHOUT_POSTS_OR_MORE);
             var page = new HNPage(doc);
 
             // ACT: retrieve next page uri
@@ -58,8 +57,7 @@ namespace HackerNewsScraper.Tests
         public void PageSurvivesMissingPostsTable()
         {
             // ARRANGE: load sample Html from file into an HNPage object
-            var doc = new HtmlDocument();
-            doc.Load(NEWS_PAGE_WITHOUT_POSTS_OR_MORE);
+            var doc = ResourceLoader.LoadHtmlDocument(NEWS_PAGE_WITHOUT_POSTS_OR_MORE);
             var page = new HNPage(doc);
 
             // ACT: retrieve posts from a page that has no posts

@@ -7,16 +7,15 @@ namespace HackerNewsScraper.Tests
 {
     public class HNPostNodeTests
     {
-        public const string NORMAL_POST = @"SampleInput\normal-post.html";
-        public const string POST_WITHOUT_AUTHOR_OR_POINTS = @"SampleInput\post-without-author-or-points.html";
-        public const string POST_WITHOUT_COMMENTS = @"SampleInput\post-without-comments.html";
+        public const string NORMAL_POST = "HackerNewsScraper.Tests.SampleInput.normal-post.html";
+        public const string POST_WITHOUT_AUTHOR_OR_POINTS = "HackerNewsScraper.Tests.SampleInput.post-without-author-or-points.html";
+        public const string POST_WITHOUT_COMMENTS = "HackerNewsScraper.Tests.SampleInput.post-without-comments.html";
         
         [Fact]
         public void PostNodeRetrievesTitle()
         {
             // ARRANGE: load sample Html from file into an HNPostNode object
-            var doc = new HtmlDocument();
-            doc.Load(NORMAL_POST);
+            var doc = ResourceLoader.LoadHtmlDocument(NORMAL_POST);
             var node = new HNPostNode(doc.DocumentNode.QuerySelector("tr.athing"));
 
             // ACT: retrieve title from the node
@@ -30,8 +29,7 @@ namespace HackerNewsScraper.Tests
         public void PostNodeRetrievesUri()
         {
             // ARRANGE: load sample Html from file into an HNPostNode object
-            var doc = new HtmlDocument();
-            doc.Load(NORMAL_POST);
+            var doc = ResourceLoader.LoadHtmlDocument(NORMAL_POST);
             var node = new HNPostNode(doc.DocumentNode.QuerySelector("tr.athing"));
 
             // ACT: retrieve uri from the node
@@ -45,8 +43,7 @@ namespace HackerNewsScraper.Tests
         public void PostNodeRetrievesAuthor()
         {
             // ARRANGE: load sample Html from file into an HNPostNode object
-            var doc = new HtmlDocument();
-            doc.Load(NORMAL_POST);
+            var doc = ResourceLoader.LoadHtmlDocument(NORMAL_POST);
             var node = new HNPostNode(doc.DocumentNode.QuerySelector("tr.athing"));
 
             // ACT: retrieve author from the node
@@ -60,8 +57,7 @@ namespace HackerNewsScraper.Tests
         public void PostNodeRetrievesPoints()
         {
             // ARRANGE: load sample Html from file into an HNPostNode object
-            var doc = new HtmlDocument();
-            doc.Load(NORMAL_POST);
+            var doc = ResourceLoader.LoadHtmlDocument(NORMAL_POST);
             var node = new HNPostNode(doc.DocumentNode.QuerySelector("tr.athing"));
 
             // ACT: retrieve points from the node
@@ -75,8 +71,7 @@ namespace HackerNewsScraper.Tests
         public void PostNodeRetrievesComments()
         {
             // ARRANGE: load sample Html from file into an HNPostNode object
-            var doc = new HtmlDocument();
-            doc.Load(NORMAL_POST);
+            var doc = ResourceLoader.LoadHtmlDocument(NORMAL_POST);
             var node = new HNPostNode(doc.DocumentNode.QuerySelector("tr.athing"));
 
             // ACT: retrieve points from the node
@@ -90,8 +85,7 @@ namespace HackerNewsScraper.Tests
         public void PostNodeRetrievesRank()
         {
             // ARRANGE: load sample Html from file into an HNPostNode object
-            var doc = new HtmlDocument();
-            doc.Load(NORMAL_POST);
+            var doc = ResourceLoader.LoadHtmlDocument(NORMAL_POST);
             var node = new HNPostNode(doc.DocumentNode.QuerySelector("tr.athing"));
 
             // ACT: retrieve points from the node
@@ -105,8 +99,7 @@ namespace HackerNewsScraper.Tests
         public void PostNodeSurvivesMissingAuthor()
         {
             // ARRANGE: load sample Html from file into an HNPostNode object
-            var doc = new HtmlDocument();
-            doc.Load(POST_WITHOUT_AUTHOR_OR_POINTS);
+            var doc = ResourceLoader.LoadHtmlDocument(POST_WITHOUT_AUTHOR_OR_POINTS);
             var node = new HNPostNode(doc.DocumentNode.QuerySelector("tr.athing"));
 
             // ACT: retrieve author from the node
@@ -120,8 +113,7 @@ namespace HackerNewsScraper.Tests
         public void PostNodeSurvivesMissingPoints()
         {
             // ARRANGE: load sample Html from file into an HNPostNode object
-            var doc = new HtmlDocument();
-            doc.Load(POST_WITHOUT_AUTHOR_OR_POINTS);
+            var doc = ResourceLoader.LoadHtmlDocument(POST_WITHOUT_AUTHOR_OR_POINTS);
             var node = new HNPostNode(doc.DocumentNode.QuerySelector("tr.athing"));
 
             // ACT: retrieve points from the node
@@ -135,8 +127,7 @@ namespace HackerNewsScraper.Tests
         public void PostNodeSurvivesMissingComments()
         {
             // ARRANGE: load sample Html from file into an HNPostNode object
-            var doc = new HtmlDocument();
-            doc.Load(POST_WITHOUT_COMMENTS);
+            var doc = ResourceLoader.LoadHtmlDocument(POST_WITHOUT_COMMENTS);
             var node = new HNPostNode(doc.DocumentNode.QuerySelector("tr.athing"));
 
             // ACT: retrieve comments from the node
