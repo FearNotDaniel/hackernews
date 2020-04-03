@@ -11,6 +11,10 @@ To run in a Docker container and output the first 50 posts:
 
 `> docker run hn`
 
+# Tests
+
+Significant classes are tested with xUnit. GitHub badge above should indicate passing tests; clone the repo and open in Visual Studio to execute the tests locally from Test Explorer.
+
 # Libraries Used
 
 * **.Net Core 2.1**: LTS version of the 2.x series; I can also work with 3.1 but my current home dev setup only has VS2017 and new laptop delivery is delayed by the lockdown :-()
