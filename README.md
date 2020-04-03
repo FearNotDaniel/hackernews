@@ -1,4 +1,4 @@
-![.NET Core Tests](https://github.com/FearNotDaniel/hackernews/workflows/.NET%20Core%20Tests/badge.svg)
+![.NET Core Tests](https://github.com/FearNotDaniel/hackernews/workflows/.NET%20Core%20Tests/badge.svg?event=push)
 
 # hackernews
 Console app to scrape entries from HN and convert to Json.
