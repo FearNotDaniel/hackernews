@@ -11,6 +11,14 @@ To run in a Docker container and output the first 50 posts:
 
 `> docker run hn`
 
+# Self Contained Executables
+
+As a .NET Core Console App, the project can be run from the output directory in the usual way:
+
+`> dotnet hackernews.dll --posts 50`
+
+This requires the relevant runtime to be installed on the target machine. As an alternative, self-contained binaries for all platforms can be downloaded from the [Releases page](https://github.com/FearNotDaniel/hackernews/releases).
+
 # Tests
 
 Significant classes are tested with xUnit. GitHub badge above should indicate passing tests; clone the repo and open in Visual Studio to execute the tests locally from Test Explorer.
