@@ -1,5 +1,4 @@
 using System.Linq;
-using HackerNewsScraper;
 using Xunit;
 
 namespace HackerNewsScraper.Tests

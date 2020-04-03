@@ -16,4 +16,22 @@
     <ProjectReference Include="..\HackerNewsScraper\HackerNewsScraper.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="SampleInput\news-page-without-posts-or-more.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SampleInput\news-page.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SampleInput\normal-post.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SampleInput\post-without-author-or-points.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SampleInput\post-without-comments.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

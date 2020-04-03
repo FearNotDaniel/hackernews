@@ -3,6 +3,7 @@ using HtmlAgilityPack;
 
 namespace HackerNewsScraper
 {
+    // Class to represent a post in its raw Html form, with each property parsed from the DOM on demand.
     public class HNPostNode
     {
         private HtmlNode _itemNode;
@@ -10,12 +11,20 @@ namespace HackerNewsScraper
         
         public HNPostNode(HtmlNode itemNode)
         {
+            // Caller will pass in the HtmlNode that represents the main <tr> element for the post.
             _itemNode = itemNode;
+
+            // Additional fields will be found within the next Html table row, not contained by the
+            // main element. Fortunately the HtmlNode retains its document context so we can select
+            // it easily with help from Fizzler's CSS selector extensions. 
             _subtextNode = _itemNode.NextSibling.QuerySelector("td.subtext");
         }
 
+        // The post ID is not required for output, but is necessary when identifying the comments counter.
         public string Id { get { return _itemNode.Id; } }
 
+        // As with all properties, Title will fail gracefully if the parent node is not found, returning
+        // empty string. This will, however, prompt a validation error on conversion to HNPost object.
         public string Title
         {
             get
@@ -26,6 +35,8 @@ namespace HackerNewsScraper
             }
         }
 
+        // Uri string is output here in its raw form, which may be absolute or relative depending on the 
+        // post type; this will be resolved to an absolute Uri when converting to the output HNPost object.
         public string Uri
         {
             get
@@ -36,6 +47,9 @@ namespace HackerNewsScraper
             }
         }
 
+        // As with all the properties this is protected against "bad" input, i.e. when an author is not
+        // indicated; note that occasional valid HN posts do show up on the site without an author.
+        // Example: https://news.ycombinator.com/item?id=22756364
         public string Author
         {
             get
@@ -47,6 +61,8 @@ namespace HackerNewsScraper
             }
         }
 
+        // Occasional posts do not have a points value, as with the authorless example referenced above;
+        // property will quietly return 0 when the relevant Html element is missing.
         public int Points
         {
             get
@@ -58,6 +74,8 @@ namespace HackerNewsScraper
             }
         }
 
+        // Occasional posts do not have comments, as with the authorless example referenced above;
+        // property will quietly return 0 when the relevant Html element is missing.
         public int Comments
         {
             get
